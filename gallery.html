@@ -3,72 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body {
-            background-color: #e6ffe6; /* Light green background */
-        }
-        .gallery {
-            margin: 15px;
-        }
-        .gallery img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-        }
-    </style>
-    <title>Lawn Care Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+    <title>Gallery</title>
 </head>
 <body>
-    <nav>
-        <a href="index.html">Home</a>
-    </nav>
-    <div class="container gallery">
-        <div class="row">
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=11GPxwmtgvrK1D_RHshRosWbJpcOT3T4y&export=view" alt="Image 1"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=15PmBZkWYz3OxKFRuqQiVUdFecZB9d0V9&export=view" alt="Image 2"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=15WKbJ1acF6uW5Sx_QM1meh6wL28VziTB&export=view" alt="Image 3"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=16zzgS7ZDmzkuzYWaGtvLUtvlHcLJr09Z&export=view" alt="Image 4"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=172wyWER0ZpfeR6XIkhSrFHXQ4esOhnwj&export=view" alt="Image 5"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=1B5SeibGKjYcCe-V-q-h3DRn61zWXiecG&export=view" alt="Image 6"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=1JVA8o-5qeriM9TMM88UFPe7g3_oOtxNF&export=view" alt="Image 7"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=1Jf-uEK8sWuyeueZvJ6w3mKrMak8mpnGM&export=view" alt="Image 8"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=1KAOTXlcb1Qfu4HL5hLuFmBi6gcE5h0HO&export=view" alt="Image 9"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=1Kntpc1NNlW4TW6WLEKe9pFLFzxRU7Reu&export=view" alt="Image 10"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=1Ktwp_wKpyjwlI645QKOH8rGTx_FNl63X&export=view" alt="Image 11"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=1LKN9Rog-OWoaA3NNw4MD233OTyTKQ7SY&export=view" alt="Image 12"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=1MmnxnLUqnB0L6Ruiw6b-5jigQdXN8Umm&export=view" alt="Image 13"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=1PxzTNyG0y3jVg6Jmc_UemkqV0O-CtQOI&export=view" alt="Image 14"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=1RsbFFUnwKNsAkyJKOZuVQe4MijJOXFAR&export=view" alt="Image 15"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=1RxT4079-Y--8q9ovbcNhw6P8HLbo8IK5&export=view" alt="Image 16"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=1SJwXZ5lLDVmiPUBJj0c6Y5tO7ivBEivg&export=view" alt="Image 17"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=1Sl3Cjf6_aK3-X1SoX33HEqZZAR6Q73Lc&export=view" alt="Image 18"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=1VybhaXdqvrDfCoi72HKQG6jzegh46rn5&export=view" alt="Image 19"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=1XU55CxXtfSAJKvIXsNIrvTw3kAQ8V0TN&export=view" alt="Image 20"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=1YQEoBDorZU29R-Ay9IEWmXXD-hw5NRS2&export=view" alt="Image 21"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=1YadSYhX-285U2-_cRBWgB8WM83Cil0Q4&export=view" alt="Image 22"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=1Z--qTEtWWL3-VFTt1UOFSaHmCYbMUbX2&export=view" alt="Image 23"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=1ZhuLK6VS9Mp_0qePBmJuGrOVrjKXoEj3&export=view" alt="Image 24"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=1_NonYlJf5aYUcbbve4630Aln2Yk8zQUG&export=view" alt="Image 25"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=1_YK37OqOopnNfwqpwjKMyXeaMK91ZY9M&export=view" alt="Image 26"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=1biOmi-V0ADo9eYkDg08hR6GvBWw5X-nT&export=view" alt="Image 27"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=1d5EvBRcKR5Tgom27NydMCtlx164i4kp4&export=view" alt="Image 28"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=1hRhMKNlG9evo0OJTthpX5kut-jDaPQXF&export=view" alt="Image 29"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=1hnP84ra9WgM_Gcu2jAzGgybJfgImL7o9&export=view" alt="Image 30"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=1kZztk7ZrZAeEvFBsFwXUGyCcrzvSCN3r&export=view" alt="Image 31"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=1kckgjByRKHdgYjVCS7UA2d02qURwWSDq&export=view" alt="Image 32"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=1kqQefl1yNGN8DZE-GXHPHsFDoB-3q3Kd&export=view" alt="Image 33"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=1ksdWpdUEZYvrNHFy0OdOuNvBvnNZBsZu&export=view" alt="Image 34"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=1lgkfZXDBZU2Qrh7QivdQ9tvptwGPOEJT&export=view" alt="Image 35"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=1mbHez-WMeRaf-3wmO8EJZV3mRqics49e&export=view" alt="Image 36"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=1rYbs1oQ4Tal9vRAyG3tL-xAE-SDziH5q&export=view" alt="Image 37"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=1xXT_SriUZxAvRZufAqDCM1xOTNI2Pj_3&export=view" alt="Image 38"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=1xpjcRsk_BIpLTFqwKKGOquSyms2k3aWr&export=view" alt="Image 39"></div>
-            <div class="col-md-3"><img src="https://drive.google.com/uc?id=1yqOZPGIn48pVmWhcDnmgcmhMoJANwkck&export=view" alt="Image 40"></div>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="IMG_6024.jpg" alt="IMG_6024">
+        </div>
+        <div class="gallery-item">
+            <img src="IMG_6027.jpg" alt="IMG_6027">
+        </div>
+        <div class="gallery-item">
+            <img src="IMG_6020.PNG" alt="IMG_6020">
+        </div>
+        <div class="gallery-item">
+            <img src="IMG_6023.PNG" alt="IMG_6023">
+        </div>
+        <div class="gallery-item">
+            <img src="IMG_6033.jpg" alt="IMG_6033">
+        </div>
+        <div class="gallery-item">
+            <img src="IMG_6026.jpg" alt="IMG_6026">
+        </div>
+        <div class="gallery-item">
+            <img src="IMG_6029.jpg" alt="IMG_6029">
+        </div>
+        <div class="gallery-item">
+            <img src="IMG_6030.jpg" alt="IMG_6030">
+        </div>
+        <div class="gallery-item">
+            <img src="IMG_6034.jpg" alt="IMG_6034">
+        </div>
+        <div class="gallery-item">
+            <img src="IMG_6035.jpg" alt="IMG_6035">
+        </div>
+        <div class="gallery-item">
+            <img src="IMG_6019.PNG" alt="IMG_6019">
+        </div>
+        <div class="gallery-item">
+            <img src="IMG_6036.PNG" alt="IMG_6036">
+        </div>
+        <div class="gallery-item">
+            <img src="IMG_6022.PNG" alt="IMG_6022">
+        </div>
+        <div class="gallery-item">
+            <img src="IMG_6025.jpg" alt="IMG_6025">
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
