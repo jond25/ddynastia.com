@@ -22,17 +22,18 @@
             font-weight: bold;
         }
 
-        /* 2×2 grid on ALL devices */
+        /* Always 2×2 grid on all devices */
         .gallery {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 15px;
         }
 
+        /* Grid images (cropped for uniform look) */
         .gallery img {
             width: 100%;
             height: 250px;
-            object-fit: cover;
+            object-fit: cover;      /* crop for uniform grid */
             border-radius: 10px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.2);
             cursor: pointer;
@@ -58,9 +59,11 @@
             align-items: center;
         }
 
+        /* Lightbox image (full uncropped view) */
         .lightbox img {
-            max-width: 90%;
-            max-height: 90%;
+            max-width: 95%;
+            max-height: 95%;
+            object-fit: contain;   /* shows full image, zoomed OUT */
             border-radius: 10px;
             box-shadow: 0 4px 20px rgba(255,255,255,0.3);
         }
@@ -107,6 +110,7 @@
             });
         });
 
+        // Close lightbox when clicking anywhere
         lightbox.addEventListener("click", () => {
             lightbox.style.display = "none";
         });
