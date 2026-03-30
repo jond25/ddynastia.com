@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery</title>
+    <title>DD Tees – Gallery</title>
 
     <style>
         body {
@@ -11,129 +11,257 @@
             margin: 20px;
         }
 
-        .back-btn {
-            display: inline-block;
-            margin-bottom: 20px;
-            padding: 10px 18px;
-            background: #198754;
-            color: white;
+        a {
+            color: #198754;
             text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
+            font-weight: 600;
         }
 
-        /* Always 2×2 grid on all devices */
-        .gallery {
+        h1, h2 {
+            color: #198754;
+            margin-bottom: 16px;
+        }
+
+        /* Gallery grid */
+        .gallery-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
+            gap: 12px;
         }
 
-        /* Grid images (cropped for uniform look) */
-        .gallery img {
+        @media (min-width: 700px) {
+            .gallery-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 1000px) {
+            .gallery-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .gallery-item {
+            opacity: 0;
+            transform: scale(0.96);
+            animation: fadeInScale 0.4s forwards;
+        }
+
+        .gallery-item img {
             width: 100%;
-            height: 250px;
-            object-fit: cover;      /* crop for uniform grid */
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            border-radius: 8px;
             cursor: pointer;
-            transition: transform 0.3s ease;
+            display: block;
         }
 
-        /* Hover zoom */
-        .gallery img:hover {
-            transform: scale(1.05);
+        .gallery-item img:hover {
+            transform: scale(1.03);
+            transition: transform 0.2s ease;
         }
 
-        /* Lightbox overlay */
-        .lightbox {
+        @keyframes fadeInScale {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Load more button */
+        .load-more-container {
+            text-align: center;
+            margin: 24px 0;
+        }
+
+        .load-more-btn {
+            background: #198754;
+            color: #fff;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .load-more-btn:disabled {
+            opacity: 0.6;
+            cursor: default;
+        }
+
+        /* Video grid */
+        .video-section {
             display: none;
-            position: fixed;
-            z-index: 9999;
-            top: 0;
-            left: 0;
+            margin-top: 32px;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 16px;
+        }
+
+        @media (min-width: 700px) {
+            .video-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .video-grid video {
             width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.85);
+            border-radius: 8px;
+        }
+
+        /* Lightbox */
+        .lightbox-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.8);
+            display: none;
             justify-content: center;
             align-items: center;
+            z-index: 999;
         }
 
-        /* Lightbox image (full uncropped view) */
-        .lightbox img {
-            max-width: 95%;
-            max-height: 95%;
-            object-fit: contain;   /* shows full image, zoomed OUT */
+        .lightbox-overlay img {
+            max-width: 90%;
+            max-height: 90%;
             border-radius: 10px;
-            box-shadow: 0 4px 20px rgba(255,255,255,0.3);
+            box-shadow: 0 0 20px rgba(0,0,0,0.6);
+        }
+
+        .lightbox-overlay.close-area {
+            cursor: pointer;
         }
     </style>
 </head>
-
 <body>
 
-    <a href="/" class="back-btn">← Back to Home</a>
+    <a href="index.html">← Back to DD Tees Home</a>
 
-    <div class="gallery">
+    <h1>DD Tees Gallery</h1>
 
-        <img src="https://jond25.github.io/ddynastia.com/IMG_6024.jpg" alt="">
-        <img src="https://jond25.github.io/ddynastia.com/IMG_6027.jpg" alt="">
-        <img src="https://jond25.github.io/ddynastia.com/IMG_6020.PNG" alt="">
-        <img src="https://jond25.github.io/ddynastia.com/IMG_6023.PNG" alt="">
-        <img src="https://jond25.github.io/ddynastia.com/IMG_6033.jpg" alt="">
-        <img src="https://jond25.github.io/ddynastia.com/IMG_6026.jpg" alt="">
-        <img src="https://jond25.github.io/ddynastia.com/IMG_6029.jpg" alt="">
-        <img src="https://jond25.github.io/ddynastia.com/IMG_6030.jpg" alt="">
-        <img src="https://jond25.github.io/ddynastia.com/IMG_6034.jpg" alt="">
-        <img src="https://jond25.github.io/ddynastia.com/IMG_6035.jpg" alt="">
-        <img src="https://jond25.github.io/ddynastia.com/IMG_6019.PNG" alt="">
-        <img src="https://jond25.github.io/ddynastia.com/IMG_6036.PNG" alt="">
-        <img src="https://jond25.github.io/ddynastia.com/IMG_6022.PNG" alt="">
-        <img src="https://jond25.github.io/ddynastia.com/IMG_6025.jpg" alt="">
+    <!-- IMAGE GALLERY -->
+    <h2>Photos</h2>
+    <div class="gallery-grid" id="galleryGrid">
 
+        <!-- First 6 images (always visible) -->
+        <div class="gallery-item"><img src="assets/images/71665990139__DAD1C520-1AE8-41AE-A52D-EED0F503C2EF.HEIC" alt=""></div>
+        <div class="gallery-item"><img src="assets/images/71824541547__A95B280D-2C5D-4B60-B242-1F924EC7E0A3.HEIC" alt=""></div>
+        <div class="gallery-item"><img src="assets/images/71927145808__94B9BCF7-B89D-419E-9669-FF33526FD93C.HEIC" alt=""></div>
+        <div class="gallery-item"><img src="assets/images/71988030598__DF88AE0C-5D0F-42C0-9E21-F0AFA1C5E42E.HEIC" alt=""></div>
+        <div class="gallery-item"><img src="assets/images/732AB41A-5616-4526-A186-DD96DB0D021B.HEIC" alt=""></div>
+        <div class="gallery-item"><img src="assets/images/A54221F1-BA8F-4340-BE35-0E53AEA8063E.HEIC" alt=""></div>
+
+        <!-- Remaining images (hidden initially, added via JS) -->
     </div>
 
-    <!-- Lightbox -->
-    <div class="lightbox" id="lightbox">
-        <img id="lightbox-img" src="">
+    <div class="load-more-container">
+        <button class="load-more-btn" id="loadMoreBtn">Load More</button>
+    </div>
+
+    <!-- VIDEO SECTION -->
+    <div class="video-section" id="videoSection">
+        <h2>Videos</h2>
+        <div class="video-grid">
+            <video controls src="assets/images/IMG_2648.MOV"></video>
+            <video controls src="assets/images/IMG_2770.MOV"></video>
+        </div>
+    </div>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox-overlay" id="lightbox">
+        <div class="close-area" id="lightboxClose">
+            <img id="lightboxImg" src="" alt="">
+        </div>
     </div>
 
     <script>
-        // Lightbox functionality
+        // Remaining image paths
+        const remainingImages = [
+            "assets/images/B9499B61-56C9-44C3-A95A-A6BF86BDF7C1.HEIC",
+            "assets/images/DFECBE0A-CBB8-4B57-9614-D7F6F8E0BF60.HEIC",
+            "assets/images/IMG_2053.HEIC",
+            "assets/images/IMG_2066.HEIC",
+            "assets/images/IMG_2310.heic",
+            "assets/images/IMG_2336.HEIC",
+            "assets/images/IMG_2382.HEIC",
+            "assets/images/IMG_2388.HEIC",
+            "assets/images/IMG_2399.HEIC",
+            "assets/images/IMG_2400.HEIC",
+            "assets/images/IMG_2517.heic",
+            "assets/images/IMG_2601.HEIC",
+            "assets/images/IMG_2664.HEIC",
+            "assets/images/IMG_2666.HEIC",
+            "assets/images/IMG_2668.HEIC",
+            "assets/images/IMG_2736.JPG",
+            "assets/images/IMG_2738.HEIC",
+            "assets/images/IMG_2739.HEIC",
+            "assets/images/IMG_2740.HEIC",
+            "assets/images/IMG_2771.HEIC",
+            "assets/images/IMG_2772.HEIC",
+            "assets/images/IMG_2779.HEIC",
+            "assets/images/IMG_2790.HEIC",
+            "assets/images/IMG_2817.HEIC",
+            "assets/images/IMG_2818.HEIC",
+            "assets/images/IMG_2853.HEIC",
+            "assets/images/IMG_2937.HEIC",
+            "assets/images/IMG_3025.HEIC",
+            "assets/images/IMG_3077.HEIC",
+            "assets/images/IMG_3109.HEIC",
+            "assets/images/IMG_3258.JPG",
+            "assets/images/IMG_3501.JPG",
+            "assets/images/IMG_3504.HEIC",
+            "assets/images/IMG_3513.HEIC",
+            "assets/images/image000000.JPG"
+        ];
+
+        const galleryGrid = document.getElementById("galleryGrid");
+        const loadMoreBtn = document.getElementById("loadMoreBtn");
+        const videoSection = document.getElementById("videoSection");
+
+        // Lightbox elements
         const lightbox = document.getElementById("lightbox");
-        const lightboxImg = document.getElementById("lightbox-img");
+        const lightboxImg = document.getElementById("lightboxImg");
+        const lightboxClose = document.getElementById("lightboxClose");
 
-        document.querySelectorAll(".gallery img").forEach(img => {
-            img.addEventListener("click", () => {
-                lightboxImg.src = img.src;
-                lightbox.style.display = "flex";
+        // Attach lightbox to existing images
+        function attachLightboxHandlers() {
+            const imgs = document.querySelectorAll(".gallery-item img");
+            imgs.forEach(img => {
+                img.onclick = () => {
+                    lightboxImg.src = img.src;
+                    lightbox.style.display = "flex";
+                };
             });
-        });
+        }
 
-        // Close lightbox when clicking anywhere
-        lightbox.addEventListener("click", () => {
+        attachLightboxHandlers();
+
+        lightboxClose.onclick = () => {
             lightbox.style.display = "none";
+            lightboxImg.src = "";
+        };
+
+        // Load more: add remaining images + show videos
+        loadMoreBtn.addEventListener("click", () => {
+            remainingImages.forEach((src, index) => {
+                const div = document.createElement("div");
+                div.className = "gallery-item";
+                div.style.animationDelay = (index * 0.03) + "s";
+
+                const img = document.createElement("img");
+                img.src = src;
+                img.alt = "";
+
+                div.appendChild(img);
+                galleryGrid.appendChild(div);
+            });
+
+            attachLightboxHandlers();
+            videoSection.style.display = "block";
+            loadMoreBtn.disabled = true;
+            loadMoreBtn.textContent = "All Loaded";
         });
     </script>
 
 </body>
-    <footer style="
-    width: 100%;
-    text-align: center;
-    font-size: 0.7rem;
-    color: #777;
-    padding: 12px 0;
-    margin-top: 40px;
-    border-top: 1px solid #ddd;
-    background: #f8f8f8;
-">
-    Copyright © 2025 Gift'DD Consultant Services. All Rights Reserved. No part of this publication may be reproduced, 
-                        distributed, or transmitted in any form or by any means, including photocopying, recording, or other electronic or 
-                        mechanical methods, without the prior written permission of the publisher, except in the case of brief quotations 
-                        embodied in critical reviews and certain other noncommercial uses permitted by copyright law.</p>
-                .
-</footer>
-</body>
-</html>
-
 </html>
